@@ -3,15 +3,12 @@ package clt_rpc_fileitf
 //Product by SureMoonNet
 //Author: ProtossGenius
 //Auto-code should not change.
-import (
-	"sync"
-
-	"github.com/ProtossGenius/SureMoonNet/smn/net_libs/smn_rpc"
-	"github.com/ProtossGenius/srfile/fileitf"
-	"github.com/ProtossGenius/srfile/pb/rip_fileitf"
-	"github.com/ProtossGenius/srfile/pb/smn_dict"
-	"github.com/golang/protobuf/proto"
-)
+import "github.com/ProtossGenius/srfile/fileitf"
+import "github.com/golang/protobuf/proto"
+import "github.com/ProtossGenius/srfile/pb/rip_fileitf"
+import "github.com/ProtossGenius/srfile/pb/smn_dict"
+import "github.com/ProtossGenius/SureMoonNet/smn/net_libs/smn_rpc"
+import "sync"
 
 type CltRpcFileReqItf struct {
 	fileitf.FileReqItf

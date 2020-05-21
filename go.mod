@@ -3,7 +3,7 @@ module github.com/ProtossGenius/srfile
 go 1.14
 
 require (
-	github.com/ProtossGenius/SureMoonNet v0.0.0-20200521032145-0c59772c4523
+	github.com/ProtossGenius/SureMoonNet v0.0.0-20200521072232-3db4453905eb
 	github.com/ProtossGenius/smntools v0.0.0-20200520072714-534c87925479 // indirect
 	github.com/golang/protobuf v1.4.0
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect

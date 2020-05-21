@@ -59,7 +59,7 @@ func ReadEdict_rip_fileitf_FileReqItf_MakeSureAccessCode_Prm(bytes []byte) *rip_
 	}
 	return msg
 }
-func (this *SvrRpcFileReqItf) OnMessage(c *smn_base.Call, conn net.Conn) (_d smn_dict.EDict, _p proto.Message, _e error) {
+func (this *SvrRpcFileReqItf) OnMessage(c *smn_base.Call, conn net.Conn) (_d int32, _p proto.Message, _e error) {
 	defer func() {
 		if err := recover(); err != nil {
 			_p = nil
@@ -70,28 +70,28 @@ func (this *SvrRpcFileReqItf) OnMessage(c *smn_base.Call, conn net.Conn) (_d smn
 	case smn_dict.EDict_rip_fileitf_FileReqItf_OpenFile_Prm:
 		{
 			_msg := ReadEdict_rip_fileitf_FileReqItf_OpenFile_Prm(c.Msg)
-			_d = smn_dict.EDict_rip_fileitf_FileReqItf_OpenFile_Ret
+			_d = int32(smn_dict.EDict_rip_fileitf_FileReqItf_OpenFile_Ret)
 			p0, p1 := this.itf.OpenFile(_msg.Path)
 			return _d, &rip_fileitf.FileReqItf_OpenFile_Ret{FileCode: p0, Err: p1}, nil
 		}
 	case smn_dict.EDict_rip_fileitf_FileReqItf_Read_Prm:
 		{
 			_msg := ReadEdict_rip_fileitf_FileReqItf_Read_Prm(c.Msg)
-			_d = smn_dict.EDict_rip_fileitf_FileReqItf_Read_Ret
+			_d = int32(smn_dict.EDict_rip_fileitf_FileReqItf_Read_Ret)
 			p0, p1 := this.itf.Read(_msg.FileCode, _msg.Start, _msg.Size)
 			return _d, &rip_fileitf.FileReqItf_Read_Ret{AccessCode: p0, Err: p1}, nil
 		}
 	case smn_dict.EDict_rip_fileitf_FileReqItf_Write_Prm:
 		{
 			_msg := ReadEdict_rip_fileitf_FileReqItf_Write_Prm(c.Msg)
-			_d = smn_dict.EDict_rip_fileitf_FileReqItf_Write_Ret
+			_d = int32(smn_dict.EDict_rip_fileitf_FileReqItf_Write_Ret)
 			p0, p1 := this.itf.Write(_msg.FileCode, _msg.Size)
 			return _d, &rip_fileitf.FileReqItf_Write_Ret{AccessCode: p0, Err: p1}, nil
 		}
 	case smn_dict.EDict_rip_fileitf_FileReqItf_MakeSureAccessCode_Prm:
 		{
 			_msg := ReadEdict_rip_fileitf_FileReqItf_MakeSureAccessCode_Prm(c.Msg)
-			_d = smn_dict.EDict_rip_fileitf_FileReqItf_MakeSureAccessCode_Ret
+			_d = int32(smn_dict.EDict_rip_fileitf_FileReqItf_MakeSureAccessCode_Ret)
 			this.itf.MakeSureAccessCode(_msg.AccessCode)
 			return _d, &rip_fileitf.FileReqItf_MakeSureAccessCode_Ret{}, nil
 		}

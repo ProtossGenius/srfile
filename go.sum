@@ -6,6 +6,7 @@ github.com/ProtossGenius/SureMoonNet v0.0.0-20200521032145-0c59772c4523/go.mod h
 github.com/ProtossGenius/smntools v0.0.0-20200520072714-534c87925479 h1:S3VvgYlhAlU35S3gY21ecEAdK353oPIyL+ip5LGfLHE=
 github.com/ProtossGenius/smntools v0.0.0-20200520072714-534c87925479/go.mod h1:hUUzj3mblHxQNz1sNTi9k1ZbCRQbbGh6c170tVTrHbM=
 github.com/ProtossGenius/smofa v0.0.0-20200512043650-56dc0af43801/go.mod h1:mhW/V6NH8rQZRAFGmY+5eyIAPdYlyGDJrifv5u3Yxh4=
+github.com/ProtossGenius/srfile v0.0.0-20200521060139-54484c66ca8e/go.mod h1:oqUdnxrGM23MXpE5duBQlsZgcaWFuuxNjktoVPMi7hM=
 github.com/coreos/go-iptables v0.4.2/go.mod h1:/mVI274lEDI2ns62jHCDnCyBF9Iwsmekav8Dbxlm1MU=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
