@@ -1,0 +1,33 @@
+syntax = "proto3";
+option java_package = "pb";
+option java_outer_classname="fileitf";
+package rip_fileitf;
+message FileReqItf_OpenFile_Prm {
+	string path = 1;
+}
+message FileReqItf_OpenFile_Ret {
+	int64 fileCode = 1;
+	string err = 2;
+}
+message FileReqItf_Read_Prm {
+	int64 fileCode = 1;
+	int64 start = 2;
+	int64 size = 3;
+}
+message FileReqItf_Read_Ret {
+	int32 accessCode = 1;
+	string err = 2;
+}
+message FileReqItf_Write_Prm {
+	int64 fileCode = 1;
+	int64 size = 2;
+}
+message FileReqItf_Write_Ret {
+	int32 accessCode = 1;
+	string err = 2;
+}
+message FileReqItf_MakeSureAccessCode_Prm {
+	int32 accessCode = 1;
+}
+message FileReqItf_MakeSureAccessCode_Ret {
+}

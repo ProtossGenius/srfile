@@ -1,0 +1,7 @@
+{
+    "src":"./",
+    "itf_path":"./fileitf",
+    "target":{"go_c":"./rpcfile","go_s":"./rpcfile"},
+    "proto_path":"./datas/proto",
+    "module":"github.com/ProtossGenius/srfile"
+}

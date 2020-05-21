@@ -1,0 +1,16 @@
+syntax = "proto3";
+option java_package = "pb";
+option java_outer_classname="smn_dict";
+package smn_dict;
+
+enum EDict{
+	None = 0;
+	rip_fileitf_FileReqItf_MakeSureAccessCode_Prm = 1;
+	rip_fileitf_FileReqItf_MakeSureAccessCode_Ret = 2;
+	rip_fileitf_FileReqItf_OpenFile_Prm = 3;
+	rip_fileitf_FileReqItf_OpenFile_Ret = 4;
+	rip_fileitf_FileReqItf_Read_Prm = 5;
+	rip_fileitf_FileReqItf_Read_Ret = 6;
+	rip_fileitf_FileReqItf_Write_Prm = 7;
+	rip_fileitf_FileReqItf_Write_Ret = 8;
+}
