@@ -20,7 +20,8 @@ message FileReqItf_Read_Ret {
 }
 message FileReqItf_Write_Prm {
 	int64 fileCode = 1;
-	int64 size = 2;
+	int64 start = 2;
+	int64 size = 3;
 }
 message FileReqItf_Write_Ret {
 	int32 accessCode = 1;

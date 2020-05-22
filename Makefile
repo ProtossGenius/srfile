@@ -1,4 +1,5 @@
-test:
+test: build 
+	 go run test/test_net/test.go
 
 clean:
 

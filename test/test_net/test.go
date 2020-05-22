@@ -28,7 +28,7 @@ func (r *RPCFile) Read(fileCode int64, start int64, size int64) (accessCode int3
 }
 
 //Write write to fileCode. only support append.
-func (r *RPCFile) Write(fileCode int64, size int64) (accessCode int32, err string) {
+func (r *RPCFile) Write(fileCode int64, start, size int64) (accessCode int32, err string) {
 	panic("not implemented")
 }
 
@@ -50,8 +50,7 @@ func AccpterRun(adapter smn_rpc.MessageAdapterItf) {
 		msg, err := adapter.ReadCall()
 		check(err)
 		dict, res, err := rpcSvr.OnMessage(msg, adapter.GetConn())
-
-		adapter.WriteRet(int32(dict), res, err)
+		_, _ = adapter.WriteRet(dict, res, err)
 	}
 }
 

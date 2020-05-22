@@ -85,7 +85,7 @@ func (this *SvrRpcFileReqItf) OnMessage(c *smn_base.Call, conn net.Conn) (_d int
 		{
 			_msg := ReadEdict_rip_fileitf_FileReqItf_Write_Prm(c.Msg)
 			_d = int32(smn_dict.EDict_rip_fileitf_FileReqItf_Write_Ret)
-			p0, p1 := this.itf.Write(_msg.FileCode, _msg.Size)
+			p0, p1 := this.itf.Write(_msg.FileCode, _msg.Start, _msg.Size)
 			return _d, &rip_fileitf.FileReqItf_Write_Ret{AccessCode: p0, Err: p1}, nil
 		}
 	case smn_dict.EDict_rip_fileitf_FileReqItf_MakeSureAccessCode_Prm:

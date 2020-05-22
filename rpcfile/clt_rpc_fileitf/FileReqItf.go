@@ -57,10 +57,10 @@ func (this *CltRpcFileReqItf) Read(fileCode int64, start int64, size int64) (int
 	}
 	return _res.AccessCode, _res.Err
 }
-func (this *CltRpcFileReqItf) Write(fileCode int64, size int64) (int32, string) {
+func (this *CltRpcFileReqItf) Write(fileCode int64, start int64, size int64) (int32, string) {
 	this.lock.Lock()
 	defer this.lock.Unlock()
-	_msg := &rip_fileitf.FileReqItf_Write_Prm{FileCode: fileCode, Size: size}
+	_msg := &rip_fileitf.FileReqItf_Write_Prm{FileCode: fileCode, Start: start, Size: size}
 	this.conn.WriteCall(int32(smn_dict.EDict_rip_fileitf_FileReqItf_Write_Prm), _msg)
 	_rm, _err := this.conn.ReadRet()
 	if _err != nil {
