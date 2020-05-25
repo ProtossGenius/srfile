@@ -13,13 +13,23 @@ func NewSRFileMgr() *SRFileMgr {
 type SRFileMgr struct {
 }
 
+//GetReadCode When service want read from file. give access code.
+func (sfm *SRFileMgr) GetReadCode(fileCode int64, start int64, size int64) (accessCode int32, err string) {
+	return -1, ""
+}
+
+//GetWriteCode when service want write to file. give access code.
+func (sfm *SRFileMgr) GetWriteCode(fileCode int64, start int64, size int64) (accessCode int32, err string) {
+	return -1, ""
+}
+
 //WriteToNet read from local and write to net.
 func (sfm *SRFileMgr) WriteToNet(w io.Writer, fileCode, start, size int64) error {
 	return nil
 }
 
 //ReadFromNet read from net and write to local.
-func (sfm *SRFileMgr) ReadFromNet(w io.Writer, fileCode, start, size int64) error {
+func (sfm *SRFileMgr) ReadFromNet(w io.Reader, fileCode, start, size int64) error {
 	return nil
 }
 

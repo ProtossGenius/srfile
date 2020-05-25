@@ -23,12 +23,12 @@ func (s *SRFileServer) OpenFile(path string) (fileCode int64, err string) {
 
 //Read read from fileCode. start is file.byte[start], size is how many byte to read.
 func (s *SRFileServer) Read(fileCode int64, start int64, size int64) (accessCode int32, err string) {
-	panic("not implemented") // TODO: Implement
+	return s.fileMgr.GetReadCode(fileCode, start, size)
 }
 
-//Write write to fileCode. if start not end, will overwrite, so be careful.
+//Write write to fileCode. if start not EOF, will overwrite, so be careful.
 func (s *SRFileServer) Write(fileCode int64, start int64, size int64) (accessCode int32, err string) {
-	panic("not implemented") // TODO: Implement
+	return s.fileMgr.GetWriteCode(fileCode, start, size)
 }
 
 //MakeSureAccessCode tell server you are ready to deal accessCode.
