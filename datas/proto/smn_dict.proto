@@ -13,4 +13,6 @@ enum EDict{
 	rip_fileitf_FileReqItf_Read_Ret = 6;
 	rip_fileitf_FileReqItf_Write_Prm = 7;
 	rip_fileitf_FileReqItf_Write_Ret = 8;
+	rip_fileitf_FileReqItf_CreateFile_Prm = 9;
+	rip_fileitf_FileReqItf_CreateFile_Ret = 10;
 }

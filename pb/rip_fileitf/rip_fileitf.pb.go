@@ -20,8 +20,102 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+type FileReqItf_CreateFile_Prm struct {
+	Hash                 string   `protobuf:"bytes,1,opt,name=hash,proto3" json:"hash,omitempty"`
+	Size                 int64    `protobuf:"varint,2,opt,name=size,proto3" json:"size,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *FileReqItf_CreateFile_Prm) Reset()         { *m = FileReqItf_CreateFile_Prm{} }
+func (m *FileReqItf_CreateFile_Prm) String() string { return proto.CompactTextString(m) }
+func (*FileReqItf_CreateFile_Prm) ProtoMessage()    {}
+func (*FileReqItf_CreateFile_Prm) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d8c7d1523b35364e, []int{0}
+}
+
+func (m *FileReqItf_CreateFile_Prm) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_FileReqItf_CreateFile_Prm.Unmarshal(m, b)
+}
+func (m *FileReqItf_CreateFile_Prm) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_FileReqItf_CreateFile_Prm.Marshal(b, m, deterministic)
+}
+func (m *FileReqItf_CreateFile_Prm) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_FileReqItf_CreateFile_Prm.Merge(m, src)
+}
+func (m *FileReqItf_CreateFile_Prm) XXX_Size() int {
+	return xxx_messageInfo_FileReqItf_CreateFile_Prm.Size(m)
+}
+func (m *FileReqItf_CreateFile_Prm) XXX_DiscardUnknown() {
+	xxx_messageInfo_FileReqItf_CreateFile_Prm.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_FileReqItf_CreateFile_Prm proto.InternalMessageInfo
+
+func (m *FileReqItf_CreateFile_Prm) GetHash() string {
+	if m != nil {
+		return m.Hash
+	}
+	return ""
+}
+
+func (m *FileReqItf_CreateFile_Prm) GetSize() int64 {
+	if m != nil {
+		return m.Size
+	}
+	return 0
+}
+
+type FileReqItf_CreateFile_Ret struct {
+	FileCode             int64    `protobuf:"varint,1,opt,name=fileCode,proto3" json:"fileCode,omitempty"`
+	Err                  string   `protobuf:"bytes,2,opt,name=err,proto3" json:"err,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *FileReqItf_CreateFile_Ret) Reset()         { *m = FileReqItf_CreateFile_Ret{} }
+func (m *FileReqItf_CreateFile_Ret) String() string { return proto.CompactTextString(m) }
+func (*FileReqItf_CreateFile_Ret) ProtoMessage()    {}
+func (*FileReqItf_CreateFile_Ret) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d8c7d1523b35364e, []int{1}
+}
+
+func (m *FileReqItf_CreateFile_Ret) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_FileReqItf_CreateFile_Ret.Unmarshal(m, b)
+}
+func (m *FileReqItf_CreateFile_Ret) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_FileReqItf_CreateFile_Ret.Marshal(b, m, deterministic)
+}
+func (m *FileReqItf_CreateFile_Ret) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_FileReqItf_CreateFile_Ret.Merge(m, src)
+}
+func (m *FileReqItf_CreateFile_Ret) XXX_Size() int {
+	return xxx_messageInfo_FileReqItf_CreateFile_Ret.Size(m)
+}
+func (m *FileReqItf_CreateFile_Ret) XXX_DiscardUnknown() {
+	xxx_messageInfo_FileReqItf_CreateFile_Ret.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_FileReqItf_CreateFile_Ret proto.InternalMessageInfo
+
+func (m *FileReqItf_CreateFile_Ret) GetFileCode() int64 {
+	if m != nil {
+		return m.FileCode
+	}
+	return 0
+}
+
+func (m *FileReqItf_CreateFile_Ret) GetErr() string {
+	if m != nil {
+		return m.Err
+	}
+	return ""
+}
+
 type FileReqItf_OpenFile_Prm struct {
-	Path                 string   `protobuf:"bytes,1,opt,name=path,proto3" json:"path,omitempty"`
+	Hash                 string   `protobuf:"bytes,1,opt,name=hash,proto3" json:"hash,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -31,7 +125,7 @@ func (m *FileReqItf_OpenFile_Prm) Reset()         { *m = FileReqItf_OpenFile_Prm
 func (m *FileReqItf_OpenFile_Prm) String() string { return proto.CompactTextString(m) }
 func (*FileReqItf_OpenFile_Prm) ProtoMessage()    {}
 func (*FileReqItf_OpenFile_Prm) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d8c7d1523b35364e, []int{0}
+	return fileDescriptor_d8c7d1523b35364e, []int{2}
 }
 
 func (m *FileReqItf_OpenFile_Prm) XXX_Unmarshal(b []byte) error {
@@ -52,16 +146,17 @@ func (m *FileReqItf_OpenFile_Prm) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_FileReqItf_OpenFile_Prm proto.InternalMessageInfo
 
-func (m *FileReqItf_OpenFile_Prm) GetPath() string {
+func (m *FileReqItf_OpenFile_Prm) GetHash() string {
 	if m != nil {
-		return m.Path
+		return m.Hash
 	}
 	return ""
 }
 
 type FileReqItf_OpenFile_Ret struct {
 	FileCode             int64    `protobuf:"varint,1,opt,name=fileCode,proto3" json:"fileCode,omitempty"`
-	Err                  string   `protobuf:"bytes,2,opt,name=err,proto3" json:"err,omitempty"`
+	Size                 int64    `protobuf:"varint,2,opt,name=size,proto3" json:"size,omitempty"`
+	Err                  string   `protobuf:"bytes,3,opt,name=err,proto3" json:"err,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -71,7 +166,7 @@ func (m *FileReqItf_OpenFile_Ret) Reset()         { *m = FileReqItf_OpenFile_Ret
 func (m *FileReqItf_OpenFile_Ret) String() string { return proto.CompactTextString(m) }
 func (*FileReqItf_OpenFile_Ret) ProtoMessage()    {}
 func (*FileReqItf_OpenFile_Ret) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d8c7d1523b35364e, []int{1}
+	return fileDescriptor_d8c7d1523b35364e, []int{3}
 }
 
 func (m *FileReqItf_OpenFile_Ret) XXX_Unmarshal(b []byte) error {
@@ -99,6 +194,13 @@ func (m *FileReqItf_OpenFile_Ret) GetFileCode() int64 {
 	return 0
 }
 
+func (m *FileReqItf_OpenFile_Ret) GetSize() int64 {
+	if m != nil {
+		return m.Size
+	}
+	return 0
+}
+
 func (m *FileReqItf_OpenFile_Ret) GetErr() string {
 	if m != nil {
 		return m.Err
@@ -108,8 +210,7 @@ func (m *FileReqItf_OpenFile_Ret) GetErr() string {
 
 type FileReqItf_Read_Prm struct {
 	FileCode             int64    `protobuf:"varint,1,opt,name=fileCode,proto3" json:"fileCode,omitempty"`
-	Start                int64    `protobuf:"varint,2,opt,name=start,proto3" json:"start,omitempty"`
-	Size                 int64    `protobuf:"varint,3,opt,name=size,proto3" json:"size,omitempty"`
+	Block                int64    `protobuf:"varint,2,opt,name=block,proto3" json:"block,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -119,7 +220,7 @@ func (m *FileReqItf_Read_Prm) Reset()         { *m = FileReqItf_Read_Prm{} }
 func (m *FileReqItf_Read_Prm) String() string { return proto.CompactTextString(m) }
 func (*FileReqItf_Read_Prm) ProtoMessage()    {}
 func (*FileReqItf_Read_Prm) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d8c7d1523b35364e, []int{2}
+	return fileDescriptor_d8c7d1523b35364e, []int{4}
 }
 
 func (m *FileReqItf_Read_Prm) XXX_Unmarshal(b []byte) error {
@@ -147,16 +248,9 @@ func (m *FileReqItf_Read_Prm) GetFileCode() int64 {
 	return 0
 }
 
-func (m *FileReqItf_Read_Prm) GetStart() int64 {
+func (m *FileReqItf_Read_Prm) GetBlock() int64 {
 	if m != nil {
-		return m.Start
-	}
-	return 0
-}
-
-func (m *FileReqItf_Read_Prm) GetSize() int64 {
-	if m != nil {
-		return m.Size
+		return m.Block
 	}
 	return 0
 }
@@ -173,7 +267,7 @@ func (m *FileReqItf_Read_Ret) Reset()         { *m = FileReqItf_Read_Ret{} }
 func (m *FileReqItf_Read_Ret) String() string { return proto.CompactTextString(m) }
 func (*FileReqItf_Read_Ret) ProtoMessage()    {}
 func (*FileReqItf_Read_Ret) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d8c7d1523b35364e, []int{3}
+	return fileDescriptor_d8c7d1523b35364e, []int{5}
 }
 
 func (m *FileReqItf_Read_Ret) XXX_Unmarshal(b []byte) error {
@@ -210,8 +304,7 @@ func (m *FileReqItf_Read_Ret) GetErr() string {
 
 type FileReqItf_Write_Prm struct {
 	FileCode             int64    `protobuf:"varint,1,opt,name=fileCode,proto3" json:"fileCode,omitempty"`
-	Start                int64    `protobuf:"varint,2,opt,name=start,proto3" json:"start,omitempty"`
-	Size                 int64    `protobuf:"varint,3,opt,name=size,proto3" json:"size,omitempty"`
+	Block                int64    `protobuf:"varint,2,opt,name=block,proto3" json:"block,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -221,7 +314,7 @@ func (m *FileReqItf_Write_Prm) Reset()         { *m = FileReqItf_Write_Prm{} }
 func (m *FileReqItf_Write_Prm) String() string { return proto.CompactTextString(m) }
 func (*FileReqItf_Write_Prm) ProtoMessage()    {}
 func (*FileReqItf_Write_Prm) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d8c7d1523b35364e, []int{4}
+	return fileDescriptor_d8c7d1523b35364e, []int{6}
 }
 
 func (m *FileReqItf_Write_Prm) XXX_Unmarshal(b []byte) error {
@@ -249,16 +342,9 @@ func (m *FileReqItf_Write_Prm) GetFileCode() int64 {
 	return 0
 }
 
-func (m *FileReqItf_Write_Prm) GetStart() int64 {
+func (m *FileReqItf_Write_Prm) GetBlock() int64 {
 	if m != nil {
-		return m.Start
-	}
-	return 0
-}
-
-func (m *FileReqItf_Write_Prm) GetSize() int64 {
-	if m != nil {
-		return m.Size
+		return m.Block
 	}
 	return 0
 }
@@ -275,7 +361,7 @@ func (m *FileReqItf_Write_Ret) Reset()         { *m = FileReqItf_Write_Ret{} }
 func (m *FileReqItf_Write_Ret) String() string { return proto.CompactTextString(m) }
 func (*FileReqItf_Write_Ret) ProtoMessage()    {}
 func (*FileReqItf_Write_Ret) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d8c7d1523b35364e, []int{5}
+	return fileDescriptor_d8c7d1523b35364e, []int{7}
 }
 
 func (m *FileReqItf_Write_Ret) XXX_Unmarshal(b []byte) error {
@@ -321,7 +407,7 @@ func (m *FileReqItf_MakeSureAccessCode_Prm) Reset()         { *m = FileReqItf_Ma
 func (m *FileReqItf_MakeSureAccessCode_Prm) String() string { return proto.CompactTextString(m) }
 func (*FileReqItf_MakeSureAccessCode_Prm) ProtoMessage()    {}
 func (*FileReqItf_MakeSureAccessCode_Prm) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d8c7d1523b35364e, []int{6}
+	return fileDescriptor_d8c7d1523b35364e, []int{8}
 }
 
 func (m *FileReqItf_MakeSureAccessCode_Prm) XXX_Unmarshal(b []byte) error {
@@ -359,7 +445,7 @@ func (m *FileReqItf_MakeSureAccessCode_Ret) Reset()         { *m = FileReqItf_Ma
 func (m *FileReqItf_MakeSureAccessCode_Ret) String() string { return proto.CompactTextString(m) }
 func (*FileReqItf_MakeSureAccessCode_Ret) ProtoMessage()    {}
 func (*FileReqItf_MakeSureAccessCode_Ret) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d8c7d1523b35364e, []int{7}
+	return fileDescriptor_d8c7d1523b35364e, []int{9}
 }
 
 func (m *FileReqItf_MakeSureAccessCode_Ret) XXX_Unmarshal(b []byte) error {
@@ -381,6 +467,8 @@ func (m *FileReqItf_MakeSureAccessCode_Ret) XXX_DiscardUnknown() {
 var xxx_messageInfo_FileReqItf_MakeSureAccessCode_Ret proto.InternalMessageInfo
 
 func init() {
+	proto.RegisterType((*FileReqItf_CreateFile_Prm)(nil), "rip_fileitf.FileReqItf_CreateFile_Prm")
+	proto.RegisterType((*FileReqItf_CreateFile_Ret)(nil), "rip_fileitf.FileReqItf_CreateFile_Ret")
 	proto.RegisterType((*FileReqItf_OpenFile_Prm)(nil), "rip_fileitf.FileReqItf_OpenFile_Prm")
 	proto.RegisterType((*FileReqItf_OpenFile_Ret)(nil), "rip_fileitf.FileReqItf_OpenFile_Ret")
 	proto.RegisterType((*FileReqItf_Read_Prm)(nil), "rip_fileitf.FileReqItf_Read_Prm")
@@ -396,21 +484,23 @@ func init() {
 }
 
 var fileDescriptor_d8c7d1523b35364e = []byte{
-	// 254 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x92, 0x3d, 0x4b, 0x03, 0x41,
-	0x10, 0x86, 0x49, 0xce, 0xf8, 0x31, 0x22, 0xc8, 0x1a, 0xf0, 0x10, 0x14, 0x5d, 0x1b, 0x1b, 0xb5,
-	0xf0, 0x17, 0x98, 0x80, 0xd1, 0x42, 0x94, 0xb1, 0xb0, 0x50, 0x38, 0x36, 0xc9, 0x1c, 0x2e, 0x46,
-	0x6f, 0x9d, 0x1b, 0x1b, 0x7f, 0xbd, 0xec, 0x28, 0xc7, 0x82, 0x87, 0x07, 0x62, 0xf7, 0xce, 0xcb,
-	0xce, 0xb3, 0x4f, 0x31, 0xb0, 0xcb, 0x3e, 0x14, 0xa5, 0x5f, 0x90, 0x97, 0xf2, 0x34, 0xc9, 0x27,
-	0x81, 0x2b, 0xa9, 0xcc, 0x7a, 0x52, 0xd9, 0x63, 0xd8, 0xbe, 0xf0, 0x0b, 0x42, 0x7a, 0xbb, 0x92,
-	0xb2, 0xb8, 0x09, 0xf4, 0x1a, 0xc7, 0xe2, 0x96, 0x5f, 0x8c, 0x81, 0xa5, 0xe0, 0xe4, 0x29, 0xef,
-	0xed, 0xf7, 0x8e, 0xd6, 0x50, 0xb3, 0x9d, 0xb4, 0x3f, 0x47, 0x12, 0xb3, 0x03, 0xab, 0x11, 0x3a,
-	0xae, 0xe6, 0xa4, 0x2b, 0x19, 0x36, 0xb3, 0xd9, 0x84, 0x8c, 0x98, 0xf3, 0xbe, 0x92, 0x62, 0xb4,
-	0x0f, 0xb0, 0x95, 0x80, 0x90, 0xdc, 0x5c, 0xff, 0xfc, 0x0d, 0x32, 0x84, 0x41, 0x2d, 0x8e, 0x45,
-	0x31, 0x19, 0x7e, 0x0d, 0xd1, 0xb2, 0xf6, 0x1f, 0x94, 0x67, 0x5a, 0x6a, 0xb6, 0x93, 0x9f, 0xf0,
-	0x68, 0xb8, 0x07, 0xe0, 0x66, 0x33, 0xaa, 0xeb, 0x06, 0x3f, 0xc0, 0xa4, 0x69, 0xb1, 0x7c, 0x84,
-	0x61, 0x02, 0xba, 0x67, 0x2f, 0xf4, 0x8f, 0x9a, 0x97, 0x2d, 0xf4, 0xbf, 0x79, 0x8e, 0xe1, 0x20,
-	0x21, 0x5d, 0xbb, 0x67, 0xba, 0x7b, 0x67, 0x3a, 0x6f, 0x56, 0x54, 0xba, 0x03, 0x6b, 0x0f, 0xbb,
-	0x20, 0x48, 0x32, 0xda, 0x80, 0x7e, 0x98, 0x8e, 0x56, 0xbe, 0xcf, 0x67, 0xba, 0xac, 0x27, 0x75,
-	0xf6, 0x19, 0x00, 0x00, 0xff, 0xff, 0xbb, 0xe8, 0x82, 0x20, 0x73, 0x02, 0x00, 0x00,
+	// 278 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x92, 0xc1, 0x4a, 0xc3, 0x40,
+	0x10, 0x86, 0x49, 0x63, 0xd5, 0x8e, 0x08, 0xb2, 0x16, 0xac, 0x82, 0x52, 0xd7, 0x4b, 0x2f, 0xea,
+	0xc1, 0x27, 0xb0, 0x01, 0xb5, 0x07, 0x51, 0xc6, 0x83, 0x07, 0x0f, 0x61, 0x93, 0x4e, 0xe8, 0xd2,
+	0x68, 0xe2, 0xee, 0x7a, 0xf1, 0xe9, 0x65, 0xd7, 0x1a, 0xf7, 0xb0, 0x6d, 0x20, 0xb7, 0x7f, 0x7e,
+	0x92, 0x6f, 0xbe, 0x84, 0x81, 0x53, 0x25, 0xeb, 0xb4, 0x90, 0x25, 0x49, 0x53, 0x5c, 0x7b, 0xf9,
+	0xaa, 0x56, 0x95, 0xa9, 0xd8, 0x9e, 0x57, 0xf1, 0x04, 0x8e, 0xef, 0x64, 0x49, 0x48, 0x9f, 0x33,
+	0x53, 0xa4, 0x89, 0x22, 0x61, 0xc8, 0x16, 0xe9, 0xb3, 0x7a, 0x67, 0x0c, 0xb6, 0x16, 0x42, 0x2f,
+	0x46, 0xd1, 0x38, 0x9a, 0x0c, 0xd0, 0x65, 0xdb, 0x69, 0xf9, 0x4d, 0xa3, 0xde, 0x38, 0x9a, 0xc4,
+	0xe8, 0x32, 0x9f, 0xad, 0x83, 0x20, 0x19, 0x76, 0x02, 0xbb, 0x76, 0x59, 0x52, 0xcd, 0xc9, 0x81,
+	0x62, 0x6c, 0x66, 0x76, 0x00, 0x31, 0x29, 0xe5, 0x58, 0x03, 0xb4, 0x91, 0x5f, 0xc2, 0x91, 0x87,
+	0x7a, 0xaa, 0xe9, 0x63, 0x93, 0x0d, 0x7f, 0x0b, 0x3f, 0xde, 0xb6, 0x37, 0xf0, 0x11, 0x7f, 0x2e,
+	0xf1, 0xbf, 0xcb, 0x3d, 0x1c, 0x7a, 0x70, 0x24, 0x31, 0x77, 0x1e, 0x9b, 0xc0, 0x43, 0xe8, 0x67,
+	0x65, 0x95, 0x2f, 0x57, 0xe4, 0xdf, 0x21, 0x04, 0xb2, 0x86, 0x67, 0x00, 0x22, 0xcf, 0x49, 0xeb,
+	0x06, 0xd5, 0x47, 0xaf, 0x09, 0xfc, 0x9d, 0x07, 0x18, 0x7a, 0xa0, 0x57, 0x25, 0x0d, 0x75, 0x54,
+	0x0a, 0x91, 0xba, 0x39, 0x25, 0x70, 0xee, 0x91, 0x1e, 0xc5, 0x92, 0x5e, 0xbe, 0x14, 0xdd, 0x36,
+	0xaf, 0x38, 0xc1, 0x16, 0x2c, 0xbf, 0x68, 0x83, 0x20, 0x99, 0xe9, 0x3e, 0xf4, 0xea, 0x6c, 0xba,
+	0xb3, 0x3a, 0xdd, 0x6c, 0xdb, 0x9d, 0xf3, 0xcd, 0x4f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x01, 0x7c,
+	0x00, 0xa3, 0xef, 0x02, 0x00, 0x00,
 }

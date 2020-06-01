@@ -19,10 +19,29 @@ type CltRpcFileReqItf struct {
 func NewCltRpcFileReqItf(conn smn_rpc.MessageAdapterItf) *CltRpcFileReqItf {
 	return &CltRpcFileReqItf{conn: conn}
 }
-func (this *CltRpcFileReqItf) OpenFile(path string) (int64, string) {
+func (this *CltRpcFileReqItf) CreateFile(hash string, size int64) (int64, string) {
 	this.lock.Lock()
 	defer this.lock.Unlock()
-	_msg := &rip_fileitf.FileReqItf_OpenFile_Prm{Path: path}
+	_msg := &rip_fileitf.FileReqItf_CreateFile_Prm{Hash: hash, Size: size}
+	this.conn.WriteCall(int32(smn_dict.EDict_rip_fileitf_FileReqItf_CreateFile_Prm), _msg)
+	_rm, _err := this.conn.ReadRet()
+	if _err != nil {
+		panic(_err)
+	}
+	if _rm.Err {
+		panic(string(_rm.Msg))
+	}
+	_res := &rip_fileitf.FileReqItf_CreateFile_Ret{}
+	_err = proto.Unmarshal(_rm.Msg, _res)
+	if _err != nil {
+		panic(_err)
+	}
+	return _res.FileCode, _res.Err
+}
+func (this *CltRpcFileReqItf) OpenFile(hash string) (int64, int64, string) {
+	this.lock.Lock()
+	defer this.lock.Unlock()
+	_msg := &rip_fileitf.FileReqItf_OpenFile_Prm{Hash: hash}
 	this.conn.WriteCall(int32(smn_dict.EDict_rip_fileitf_FileReqItf_OpenFile_Prm), _msg)
 	_rm, _err := this.conn.ReadRet()
 	if _err != nil {
@@ -36,12 +55,12 @@ func (this *CltRpcFileReqItf) OpenFile(path string) (int64, string) {
 	if _err != nil {
 		panic(_err)
 	}
-	return _res.FileCode, _res.Err
+	return _res.FileCode, _res.Size, _res.Err
 }
-func (this *CltRpcFileReqItf) Read(fileCode int64, start int64, size int64) (int32, string) {
+func (this *CltRpcFileReqItf) Read(fileCode int64, block int64) (int32, string) {
 	this.lock.Lock()
 	defer this.lock.Unlock()
-	_msg := &rip_fileitf.FileReqItf_Read_Prm{FileCode: fileCode, Start: start, Size: size}
+	_msg := &rip_fileitf.FileReqItf_Read_Prm{FileCode: fileCode, Block: block}
 	this.conn.WriteCall(int32(smn_dict.EDict_rip_fileitf_FileReqItf_Read_Prm), _msg)
 	_rm, _err := this.conn.ReadRet()
 	if _err != nil {
@@ -57,10 +76,10 @@ func (this *CltRpcFileReqItf) Read(fileCode int64, start int64, size int64) (int
 	}
 	return _res.AccessCode, _res.Err
 }
-func (this *CltRpcFileReqItf) Write(fileCode int64, start int64, size int64) (int32, string) {
+func (this *CltRpcFileReqItf) Write(fileCode int64, block int64) (int32, string) {
 	this.lock.Lock()
 	defer this.lock.Unlock()
-	_msg := &rip_fileitf.FileReqItf_Write_Prm{FileCode: fileCode, Start: start, Size: size}
+	_msg := &rip_fileitf.FileReqItf_Write_Prm{FileCode: fileCode, Block: block}
 	this.conn.WriteCall(int32(smn_dict.EDict_rip_fileitf_FileReqItf_Write_Prm), _msg)
 	_rm, _err := this.conn.ReadRet()
 	if _err != nil {

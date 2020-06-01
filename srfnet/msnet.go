@@ -2,6 +2,17 @@ package srfnet
 
 import "io"
 
+const (
+	//ErrFileNotFound when open file.
+	ErrFileNotFound = "ErrFileNotFound"
+	//ErrBlockExist should never rewrite a existed block.
+	ErrBlockExist = "ErrBlockExist"
+	//ErrInvalidBlock if block num < 0 or > max_block_id.
+	ErrInvalidBlock = "ErrInvalidBlock"
+	//ErrFileExist when create file.
+	ErrFileExist = "ErrFileExist"
+)
+
 //NewSRFileMgr create.
 func NewSRFileMgr() *SRFileMgr {
 	res := &SRFileMgr{}

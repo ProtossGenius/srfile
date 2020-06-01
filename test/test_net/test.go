@@ -16,25 +16,29 @@ const Port = 900
 type RPCFile struct {
 }
 
+//CreateFile create a new file.
+func (r *RPCFile) CreateFile(hash string, size int64) (fileCode int64, err string) {
+	panic("not implemented") // TODO: Implement
+}
+
 //OpenFile @path is file's virtual(or net) path.
-func (r *RPCFile) OpenFile(path string) (fileCode int64, err string) {
-	fmt.Println("In server path = ", path)
-	return -1, "ERR_PANIC"
+func (r *RPCFile) OpenFile(hash string) (fileCode int64, size int64, err string) {
+	return -1, -1, "PANIC"
 }
 
-//Read read from fileCode. start is file.byte[start], size is how many byte to read.
-func (r *RPCFile) Read(fileCode int64, start int64, size int64) (accessCode int32, err string) {
-	panic("not implemented")
+//Read read from fileCode.
+func (r *RPCFile) Read(fileCode int64, block int64) (accessCode int32, err string) {
+	panic("not implemented") // TODO: Implement
 }
 
-//Write write to fileCode. only support append.
-func (r *RPCFile) Write(fileCode int64, start, size int64) (accessCode int32, err string) {
-	panic("not implemented")
+//Write write to fileCode.
+func (r *RPCFile) Write(fileCode int64, block int64) (accessCode int32, err string) {
+	panic("not implemented") // TODO: Implement
 }
 
 //MakeSureAccessCode tell server you are ready to deal accessCode.
 func (r *RPCFile) MakeSureAccessCode(accessCode int32) {
-	panic("not implemented")
+	panic("not implemented") // TODO: Implement
 }
 
 func check(err error) {
