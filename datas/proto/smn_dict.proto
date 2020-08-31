@@ -15,4 +15,7 @@ enum EDict{
 	rip_fileitf_FileReqItf_Write_Ret = 8;
 	rip_fileitf_FileReqItf_CreateFile_Prm = 9;
 	rip_fileitf_FileReqItf_CreateFile_Ret = 10;
+	smn_base_Call = 11;
+	smn_base_Ret = 12;
+	smn_base_FPkg = 13;
 }

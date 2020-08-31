@@ -1,12 +1,19 @@
+##Tail
+debug:
+
+qrun:
+
+install:
+
 test: build 
 	 go run test/test_net/test.go
 
 clean:
+	rm -rf pb/ rpcfile/
 
-build: build_clean
-	go get -u github.com/ProtossGenius/smntools/cmd/smnrpc-autocode
+build: clean
+	#go get -u github.com/ProtossGenius/smntools/cmd/smnrpc-autocode # if not exist
 	smnrpc-autocode -cfg ./datas/cfgs/rpcfile.json
-
-build_clean:
-	rm -rf ./rpcfile
+	mv ./go/pb ./pb
+	rm -rf ./go
 

@@ -16,6 +16,16 @@ const Port = 900
 type RPCFile struct {
 }
 
+// Read read from fileCode.
+func (r *RPCFile) Read(fileCode int64, block int64) (accessCode int32, size int64, preHash string, subHash string, err string) {
+	panic("not implemented") // TODO: Implement
+}
+
+// Write write to fileCode.
+func (r *RPCFile) Write(fileCode int64, block int64, size int64, preHash string, subHash string) (accessCode int32, err string) {
+	panic("not implemented") // TODO: Implement
+}
+
 //CreateFile create a new file.
 func (r *RPCFile) CreateFile(hash string, size int64) (fileCode int64, err string) {
 	panic("not implemented") // TODO: Implement
@@ -24,16 +34,6 @@ func (r *RPCFile) CreateFile(hash string, size int64) (fileCode int64, err strin
 //OpenFile @path is file's virtual(or net) path.
 func (r *RPCFile) OpenFile(hash string) (fileCode int64, size int64, err string) {
 	return -1, -1, "PANIC"
-}
-
-//Read read from fileCode.
-func (r *RPCFile) Read(fileCode int64, block int64) (accessCode int32, err string) {
-	panic("not implemented") // TODO: Implement
-}
-
-//Write write to fileCode.
-func (r *RPCFile) Write(fileCode int64, block int64) (accessCode int32, err string) {
-	panic("not implemented") // TODO: Implement
 }
 
 //MakeSureAccessCode tell server you are ready to deal accessCode.

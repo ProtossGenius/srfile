@@ -3,19 +3,19 @@ option java_package = "pb";
 option java_outer_classname="fileitf";
 package rip_fileitf;
 message FileReqItf_CreateFile_Prm {
-	string hash = 1;
-	int64 size = 2;
+	string fileHash = 1;
+	int64 fileSize = 2;
 }
 message FileReqItf_CreateFile_Ret {
 	int64 fileCode = 1;
 	string err = 2;
 }
 message FileReqItf_OpenFile_Prm {
-	string hash = 1;
+	string fileHash = 1;
 }
 message FileReqItf_OpenFile_Ret {
 	int64 fileCode = 1;
-	int64 size = 2;
+	int64 fileSize = 2;
 	string err = 3;
 }
 message FileReqItf_Read_Prm {
@@ -24,11 +24,17 @@ message FileReqItf_Read_Prm {
 }
 message FileReqItf_Read_Ret {
 	int32 accessCode = 1;
-	string err = 2;
+	int64 blockSize = 2;
+	string preHash = 3;
+	string subHash = 4;
+	string err = 5;
 }
 message FileReqItf_Write_Prm {
 	int64 fileCode = 1;
 	int64 block = 2;
+	int64 blockSize = 3;
+	string preHash = 4;
+	string subHash = 5;
 }
 message FileReqItf_Write_Ret {
 	int32 accessCode = 1;
